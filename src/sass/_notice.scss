@@ -1,0 +1,51 @@
+@import "./mixin";
+
+.notice-container {
+  position: relative;
+}
+.notice {
+  $box-height: 60px;
+  $list-height: 24px;
+
+  @include flexbox($ma: space-between);
+  padding: 0 15px 0 30px;
+  width: 420px;
+
+  height: $box-height;
+  border-radius: $box-height/2;
+  position: absolute;
+  top: -94px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $notice-bg-color;
+
+  &__inform-list {
+    margin: 0;
+    height: $list-height;
+    overflow: hidden;
+  }
+  &__inform-item {
+    height: $list-height;
+    @include flexbox;
+    a{
+      margin-right: 20px;
+      overflow: hidden;
+      width: 160px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &::before {
+      content: "";
+      width: 26px;
+      height: $list-height;
+      background: url(./../images/icon-sound.svg) no-repeat 0 0/100% 100%;
+      margin-right: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+  .close-button {
+    background-color: transparent;
+    border: 0;
+  }
+}
